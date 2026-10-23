@@ -36,3 +36,7 @@ npx web-ext run --source-dir <extension-name>      # launches Firefox with the e
 - Use the promise-based `browser.*` namespace, not callback-style `chrome.*`.
 - Request the minimum permissions; prefer `activeTab` and optional permissions over broad host permissions.
 - AMO review rejects remote code, `eval`/`new Function`, and minified/obfuscated sources without source. Keep all code in the package and avoid `innerHTML` with untrusted data (lint flags it).
+
+## Git workflow
+
+Commit and push directly to `main`; no feature branches or PRs needed for this repo.
