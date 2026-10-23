@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <form id="form">
+    <label for="selector">CSS selector for the text element</label>
+    <input id="selector" type="text" spellcheck="false" autocomplete="off">
+    <p class="hint">The first matching element's text is copied after the URL, separated by a space.</p>
+    <div class="row">
+      <button type="submit">Save</button>
+      <button type="button" id="reset">Reset to default</button>
+      <span id="status" role="status"></span>
+    </div>
+  </form>
+  <script src="../defaults.js"></script>
+  <script src="options.js"></script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+body {
+  font: message-box;
+  padding: 8px;
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+input {
+  box-sizing: border-box;
+  width: 100%;
+  font-family: monospace;
+  padding: 4px 6px;
+}
+
+.hint {
+  color: GrayText;
+  margin: 6px 0 12px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+#status.error {
+  color: #d70022;
+}

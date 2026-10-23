@@ -32,7 +32,7 @@ npx web-ext run --source-dir <extension-name>      # launches Firefox with the e
 ## Firefox-specific conventions
 
 - Target Manifest V3 for new extensions. Firefox MV3 differs from Chrome: background uses `"background": { "scripts": [...] }` (event page), not `service_worker`, and host permissions are opt-in by the user at runtime.
-- Every manifest needs `browser_specific_settings.gecko.id` (e.g. `"<name>@shubhs-dev"`) and a `strict_min_version`; AMO signing and `storage.sync` depend on a stable ID. New AMO submissions also require `browser_specific_settings.gecko.data_collection_permissions`.
+- Every manifest needs `browser_specific_settings.gecko.id` (e.g. `"<name>@shubhs-dev"`) and `strict_min_version: "140.0"` (repo-wide minimum); AMO signing and `storage.sync` depend on a stable ID. New AMO submissions also require `browser_specific_settings.gecko.data_collection_permissions`.
 - Use the promise-based `browser.*` namespace, not callback-style `chrome.*`.
 - Request the minimum permissions; prefer `activeTab` and optional permissions over broad host permissions.
 - AMO review rejects remote code, `eval`/`new Function`, and minified/obfuscated sources without source. Keep all code in the package and avoid `innerHTML` with untrusted data (lint flags it).
