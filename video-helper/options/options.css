@@ -1,12 +1,28 @@
 body {
   font: message-box;
   padding: 8px;
+  max-width: 720px;
 }
 
-label {
-  display: block;
-  font-weight: 600;
+h1 {
+  font-size: 1.2em;
+  margin: 0 0 6px;
+}
+
+.hint {
+  color: GrayText;
+  margin: 0 0 12px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr auto;
+  gap: 6px;
   margin-bottom: 6px;
+}
+
+.grid.header {
+  font-weight: 600;
 }
 
 input {
@@ -16,15 +32,11 @@ input {
   padding: 4px 6px;
 }
 
-.hint {
-  color: GrayText;
-  margin: 6px 0 12px;
-}
-
 .row {
   display: flex;
   align-items: center;
   gap: 8px;
+  margin-top: 12px;
 }
 
 #status.error {

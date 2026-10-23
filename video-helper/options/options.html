@@ -2,16 +2,22 @@
 <html>
 <head>
   <meta charset="utf-8">
+  <title>Video Helper settings</title>
   <link rel="stylesheet" href="options.css">
 </head>
 <body>
   <form id="form">
-    <label for="selector">CSS selector for the text element</label>
-    <input id="selector" type="text" spellcheck="false" autocomplete="off">
-    <p class="hint">The first matching element's text is copied after the URL, separated by a space.</p>
+    <h1>CSS selector per site</h1>
+    <p class="hint">On each site, the first element matching its selector is copied after the URL, separated by a space. <code>www.</code> is ignored in hostnames.</p>
+    <div class="grid header">
+      <span>Hostname</span>
+      <span>CSS selector</span>
+      <span></span>
+    </div>
+    <div id="rows"></div>
     <div class="row">
+      <button type="button" id="add">Add site</button>
       <button type="submit">Save</button>
-      <button type="button" id="reset">Reset to default</button>
       <span id="status" role="status"></span>
     </div>
   </form>

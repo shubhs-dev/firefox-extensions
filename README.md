@@ -49,10 +49,12 @@ Copies `<page URL> <element text>` to the clipboard with one click. This is hand
 **Use:** Open a video page and click the red play icon in the toolbar. The badge shows the result:
 
 - **✓** (green): the URL and the text were copied.
-- **!** (orange): no element matched the selector, so only the URL was copied.
+- **!** (orange): no selector is set for this site, or nothing matched it, so only the URL was copied.
 - **✗** (red): the clipboard write failed.
 
-**Choose the element:** Right-click the toolbar icon and choose **Set CSS selector…**. Enter any CSS selector. The extension copies the text of the first matching element, joined into a single line. The default is `h1.ytd-watch-metadata`, which matches the video title on YouTube.
+**Choose the element (per site):** Right-click the toolbar icon and choose **Set CSS selector for this site…**. A settings tab opens with the current site's hostname filled in. Enter a CSS selector and click **Save**. Each hostname has its own selector (`www.` is ignored), and the extension copies the text of the first matching element, joined into a single line. On a site with no selector, only the URL is copied.
+
+YouTube comes preconfigured with `h1.ytd-watch-metadata`, the video title. To see, edit or remove all saved sites, open `about:addons` → **Video Helper** → **Preferences**. Selectors are saved in the extension's local storage, so they're lost if you remove the extension.
 
 To find a selector on another site, right-click the element, choose **Inspect**, then right-click the highlighted node in DevTools and choose **Copy → CSS Selector**.
 
