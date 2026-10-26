@@ -8,13 +8,25 @@
       "id": "epoch-converter@shubhs-dev",
       "strict_min_version": "140.0",
       "data_collection_permissions": {
-        "required": ["none"]
-      }
+        "required": [
+          "none"
+        ]
+      },
+      "update_url": "https://raw.githubusercontent.com/shubhs-dev/firefox-extensions/main/updates.json"
     }
   },
-  "permissions": ["activeTab", "scripting", "menus", "notifications", "clipboardWrite"],
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "menus",
+    "notifications",
+    "clipboardWrite"
+  ],
   "background": {
-    "scripts": ["convert.js", "background.js"]
+    "scripts": [
+      "convert.js",
+      "background.js"
+    ]
   },
   "icons": {
     "48": "icons/icon.svg",

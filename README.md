@@ -9,37 +9,28 @@ Personal Firefox extensions. Each folder is a standalone extension with its own 
 
 ## Installing
 
-Release Firefox only installs extensions signed by Mozilla. Pick one of these options.
+### Recommended: signed release (regular Firefox, updates itself)
 
-### Option 1: Temporary (quickest, any Firefox)
+1. Open the [Releases page](https://github.com/shubhs-dev/firefox-extensions/releases) and find the latest release for the extension, for example `video-helper-v1.1.0`.
+2. Drag its `.xpi` file onto a Firefox window, or click it, and confirm the install.
+
+Do this once on each device. After that, Firefox checks [`updates.json`](updates.json) about once a day and installs new versions automatically. To check right away, open `about:addons`, click the gear icon and choose **Check for Updates**.
+
+### For development: temporary add-on
 
 1. Open `about:debugging#/runtime/this-firefox`.
 2. Click **Load Temporary Add-on…** and select the extension's `manifest.json`.
 
 The extension stays loaded until Firefox restarts. After you edit the code, click **Reload** on the same page.
 
-### Option 2: Permanent, unsigned (Developer Edition, Nightly or ESR only)
+## Releasing a new version
 
-1. In `about:config`, set `xpinstall.signatures.required` to `false`.
-2. Build a package:
-   ```bash
-   npx web-ext build --source-dir video-helper --artifacts-dir dist/video-helper --overwrite-dest
-   ```
-3. Open `about:addons`, click the gear icon, choose **Install Add-on From File…** and pick the `.zip` file from `dist/video-helper/`.
+1. Increase `version` in the extension's `manifest.json`. Mozilla never signs the same version twice.
+2. Push to `main`.
 
-### Option 3: Permanent on regular Firefox (self-signed, not public)
+The [Sign and release extensions](.github/workflows/release.yml) workflow picks up any extension whose version isn't in `updates.json` yet. It signs that version through Mozilla as an unlisted add-on, publishes the `.xpi` as a GitHub Release and adds it to `updates.json`. Installed copies then update themselves.
 
-Mozilla signs "unlisted" extensions for free. They don't appear on addons.mozilla.org.
-
-1. Create API credentials at <https://addons.mozilla.org/developers/addon/api/key/>.
-2. Sign the extension:
-   ```bash
-   npx web-ext sign --source-dir video-helper --artifacts-dir dist/video-helper \
-     --channel unlisted --api-key "$AMO_JWT_ISSUER" --api-secret "$AMO_JWT_SECRET"
-   ```
-3. Drag the signed `.xpi` file from `dist/video-helper/` onto a Firefox window.
-
-Increase `version` in `manifest.json` before each re-sign, because Mozilla won't sign the same version twice.
+**One-time setup:** create API credentials at <https://addons.mozilla.org/developers/addon/api/key/>. Add them as repository secrets named `AMO_JWT_ISSUER` (the JWT issuer) and `AMO_JWT_SECRET` under **Settings → Secrets and variables → Actions**. To re-run a failed release, open **Actions → Sign and release extensions → Run workflow**.
 
 ## Extensions
 
