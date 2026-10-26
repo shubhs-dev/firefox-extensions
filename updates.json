@@ -1,3 +1,22 @@
 {
-  "addons": {}
+  "addons": {
+    "epoch-converter@shubhs-dev": {
+      "updates": [
+        {
+          "version": "1.0.0",
+          "update_link": "https://github.com/shubhs-dev/firefox-extensions/releases/download/epoch-converter-v1.0.0/epoch-converter-1.0.0.xpi",
+          "update_hash": "sha256:243c549ccd16dced25f685f76bb1c6dd0f24d4c66be5031fa47428bb8848f5c5"
+        }
+      ]
+    },
+    "video-helper@shubhs-dev": {
+      "updates": [
+        {
+          "version": "1.1.0",
+          "update_link": "https://github.com/shubhs-dev/firefox-extensions/releases/download/video-helper-v1.1.0/video-helper-1.1.0.xpi",
+          "update_hash": "sha256:782e58aeb345f869d7b76e3818e4bf6605516ecfc693412a6b5c1a02f6df9b81"
+        }
+      ]
+    }
+  }
 }
