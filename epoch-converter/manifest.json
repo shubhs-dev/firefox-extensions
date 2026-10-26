@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "Epoch Converter",
+  "version": "1.0.0",
+  "description": "Right-click a selected epoch timestamp to see it as an ISO 8601 date.",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "epoch-converter@shubhs-dev",
+      "strict_min_version": "140.0",
+      "data_collection_permissions": {
+        "required": ["none"]
+      }
+    }
+  },
+  "permissions": ["activeTab", "scripting", "menus", "notifications", "clipboardWrite"],
+  "background": {
+    "scripts": ["convert.js", "background.js"]
+  },
+  "icons": {
+    "48": "icons/icon.svg",
+    "96": "icons/icon.svg"
+  }
+}

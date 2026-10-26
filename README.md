@@ -5,6 +5,7 @@ Personal Firefox extensions. Each folder is a standalone extension with its own 
 | Extension | What it does |
 |---|---|
 | [`video-helper`](#video-helper) | Toolbar button that copies the page URL plus the text of a chosen element |
+| [`epoch-converter`](#epoch-converter) | Right-click a selected epoch timestamp to see it as an ISO 8601 date |
 
 ## Installing
 
@@ -59,6 +60,31 @@ YouTube comes preconfigured with `h1.ytd-watch-metadata`, the video title. To se
 To find a selector on another site, right-click the element, choose **Inspect**, then right-click the highlighted node in DevTools and choose **Copy → CSS Selector**.
 
 If the icon isn't visible, click the puzzle-piece (Extensions) button and pin **Video Helper** to the toolbar.
+
+### epoch-converter
+
+Converts a selected Unix epoch timestamp to an ISO 8601 date.
+
+**Use:** Select a timestamp on any page, right-click it and choose **Convert epoch "…" to date**. A panel opens next to the selection showing:
+
+- **UTC:** for example, `2023-11-14T22:13:20.123Z`
+- **Local:** the same moment with your UTC offset, for example `2023-11-15T03:43:20.123+05:30`
+- **Relative:** for example, "3 years ago"
+
+Each date has a **Copy** button. To close the panel, press **Esc** or click outside it.
+
+**Units** are worked out from the number of digits:
+
+| Digits | Read as |
+|---|---|
+| up to 11 | seconds |
+| 12–14 | milliseconds |
+| 15–17 | microseconds |
+| 18–19 | nanoseconds |
+
+Precision finer than a second is kept in the output, and decimal seconds such as `1700000000.5` also work. Spaces, commas and underscores in the selection are ignored, and negative values convert to dates before 1970.
+
+Some pages don't let extensions add anything to them, such as Firefox's PDF viewer, `about:` pages and addons.mozilla.org. There, the result appears as a system notification instead, and the UTC date is copied to the clipboard automatically.
 
 ## Development
 
